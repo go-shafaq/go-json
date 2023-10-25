@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding"
 	"encoding/json"
-	"github.com/go-shafaq/go-json/internal/defcase"
 	"reflect"
 	"sync/atomic"
 	"unsafe"
@@ -631,7 +630,7 @@ func (c *Compiler) structFieldCode(structCode *StructCode, tag *runtime.StructTa
 	isIndirectSpecialCase := isPtr && isOnlyOneFirstField
 	fieldCode := &StructFieldCode{
 		typ:           fieldType,
-		key:           defcase.Fn(structCode.typ.PkgPath(), tag.Key), // todo
+		key:           tag.Key,
 		tag:           tag,
 		offset:        field.Offset,
 		isAnonymous:   field.Anonymous && !tag.IsTaggedKey && toElemType(fieldType).Kind() == reflect.Struct,
@@ -814,7 +813,7 @@ func (c *Compiler) typeToStructTags(typ *runtime.Type) runtime.StructTags {
 		if runtime.IsIgnoredStructField(field) {
 			continue
 		}
-		tags = append(tags, runtime.StructTagFromField(field))
+		tags = append(tags, runtime.StructTagFromField(field, typ.PkgPath()))
 	}
 	return tags
 }
