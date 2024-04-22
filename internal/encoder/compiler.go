@@ -813,7 +813,7 @@ func (c *Compiler) typeToStructTags(typ *runtime.Type) runtime.StructTags {
 		if runtime.IsIgnoredStructField(field) {
 			continue
 		}
-		tags = append(tags, runtime.StructTagFromField(field))
+		tags = append(tags, runtime.StructTagFromField(field, typ.PkgPath()))
 	}
 	return tags
 }

@@ -1,6 +1,7 @@
 package runtime
 
 import (
+	"github.com/goccy/go-json/internal/defcase"
 	"reflect"
 	"strings"
 	"unicode"
@@ -65,7 +66,7 @@ func isValidTag(s string) bool {
 	return true
 }
 
-func StructTagFromField(field reflect.StructField) *StructTag {
+func StructTagFromField(field reflect.StructField, pkgPath string) *StructTag {
 	keyName := field.Name
 	tag := getTag(field)
 	st := &StructTag{Field: field}
@@ -74,6 +75,11 @@ func StructTagFromField(field reflect.StructField) *StructTag {
 		if opts[0] != "" && isValidTag(opts[0]) {
 			keyName = opts[0]
 			st.IsTaggedKey = true
+		} else {
+			defKeyName := defcase.Convert("json", pkgPath, keyName)
+			if defKeyName != "" && isValidTag(defKeyName) {
+				keyName = defKeyName
+			}
 		}
 	}
 	st.Key = keyName
