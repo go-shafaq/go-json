@@ -1,4 +1,4 @@
-# encoding-json
+# go-json
 
 forked from github.com/goccy/go-json
 
