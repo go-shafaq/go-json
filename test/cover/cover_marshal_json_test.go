@@ -4,8 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"testing"
-
-	"github.com/goccy/go-json"
 )
 
 type coverMarshalJSON struct {

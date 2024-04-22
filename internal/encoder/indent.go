@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/goccy/go-json/internal/errors"
+	"github.com/go-shafaq/go-json/internal/errors"
 )
 
 func takeIndentSrcRuntimeContext(src []byte) (*RuntimeContext, []byte) {

@@ -6,7 +6,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/goccy/go-json"
+	"github.com/go-shafaq/go-json"
 )
 
 func TestExtractPath(t *testing.T) {

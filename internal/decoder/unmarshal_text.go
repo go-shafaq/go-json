@@ -9,8 +9,8 @@ import (
 	"unicode/utf8"
 	"unsafe"
 
-	"github.com/goccy/go-json/internal/errors"
-	"github.com/goccy/go-json/internal/runtime"
+	"github.com/go-shafaq/go-json/internal/errors"
+	"github.com/go-shafaq/go-json/internal/runtime"
 )
 
 type unmarshalTextDecoder struct {

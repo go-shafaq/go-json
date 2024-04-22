@@ -1,6 +1,6 @@
 package json
 
-import "github.com/goccy/go-json/internal/defcase"
+import "github.com/go-shafaq/go-json/internal/defcase"
 
 type DefCase = defcase.DefCase
 

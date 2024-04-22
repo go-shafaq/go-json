@@ -1,7 +1,7 @@
 package runtime
 
 import (
-	"github.com/goccy/go-json/internal/defcase"
+	"github.com/go-shafaq/go-json/internal/defcase"
 	"reflect"
 	"strings"
 	"unicode"
